@@ -57,6 +57,7 @@
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(50, 24);
             this.txtId.TabIndex = 1;
+            this.txtId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtId_KeyPress_1);
             // 
             // label2
             // 
@@ -123,6 +124,7 @@
             this.btnSalvar.TabIndex = 10;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnExcluir
             // 

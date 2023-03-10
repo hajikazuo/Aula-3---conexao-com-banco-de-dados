@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -64,6 +65,27 @@ namespace Aula_3___conexao_com_banco_de_dados
                 }
             }
             return resultado;
+        }
+        public DataTable Retorna(string sql)
+        {
+            Conectar();
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sql, cn);
+                MySqlDataAdapter da = new MySqlDataAdapter();
+                da.SelectCommand = cmd;
+                DataTable data = new DataTable();
+                da.Fill(data);
+                return data;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                Desconectar();
+            }
         }
     }
 }
